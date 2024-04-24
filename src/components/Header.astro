@@ -1,0 +1,96 @@
+---
+import BrandShopee from "./icons/BrandShopee.astro";
+---
+
+<header class="w-full">
+    <div class="header-container container w-full flex">
+        <div class="logo flex">
+            <figure class="logo-figure">
+                <img
+                    src="../../public/Iconos/shawarma_logo.png"
+                    alt="logo de shawarma"
+                />
+            </figure>
+
+            <!-- <span>Estación Shawarma Rolls</span> -->
+        </div>
+
+        <button class="carrito">
+            <span class="carrito-contador">0</span>
+            <BrandShopee />
+        </button>
+    </div>
+</header>
+
+<style>
+    header {
+        position: fixed;
+        top: 0;
+        /* background-color: #1a1a1a; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 25px;
+        z-index: 10;
+
+        animation: enhance-header linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 300px;
+    }
+    
+    .header-container {
+        justify-content: space-between;
+    }
+    
+    .logo {
+        font-family: "The Brother Hoops", sans-serif;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--negro-suave);
+        font-size: 8rem;
+        letter-spacing: 2px;
+        width: max-content;
+        height: max-content;
+        align-items: center;
+    }
+    
+    .logo-figure {
+        width: 90px;
+        height: 90px;
+        margin-right: 16px;
+        
+        animation: enhance-image-logo linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 300px;
+    }
+    
+    .carrito {
+        position: relative;
+    }
+
+    .carrito-contador {
+        position: absolute;
+        color: black;
+        background-color: white;
+        border-radius: 50%;
+        font-weight: 600;
+        width: 22px;
+        height: 22px;
+        bottom: 10px;
+        right: 0;
+        font-size: 1.5rem;
+    }
+
+    @keyframes enhance-header {
+        to {
+            background-color: rgb(26, 26, 26, 0.9);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    @keyframes enhance-image-logo {
+        to {
+            width: 55px;
+            height: 55px;
+        }
+    }
+</style>

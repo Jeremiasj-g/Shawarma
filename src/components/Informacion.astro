@@ -1,0 +1,22 @@
+---
+import Presentacion from "./Presentacion.astro";
+import SectionContainer from "./SectionContainer.astro";
+import Ubicacion from "./Ubicacion.astro";
+---
+
+<section class="section-main section-informacion">
+    <section class="container">
+        <Ubicacion></Ubicacion>
+    </section>
+</section>
+
+<style>
+    .section-informacion {
+        flex-direction: row;
+        gap: 10px;
+        
+        > section {
+            margin-bottom: 20px;
+        }
+    }
+</style>

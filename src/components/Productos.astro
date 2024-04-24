@@ -1,0 +1,105 @@
+---
+import Encabezado from "./Encabezado.astro";
+import Producto from "./Producto.astro";
+import Section from "./SectionContainer.astro";
+
+const PRODUCTOS = [
+    {
+        imagen: "clasic_roll.webp",
+        titulo: "Classic Roll",
+        descripcion: [
+            "Pollo",
+            "Carne Vacuna",
+            "Repollo",
+            "Zanahoria",
+            "Mayonesa de la casa",
+        ],
+        precio: 4000,
+    },
+    {
+        imagen: "gourmet_roll.webp",
+        titulo: "Gourmet Roll",
+        descripcion: [
+            "Pollo",
+            "Carne Vacuna",
+            "Repollo",
+            "Zanahoria",
+            "Queso",
+            "Bacon",
+            "Roquefort",
+            "Mayonesa de la casa",
+        ],
+        precio: 6500,
+    },
+    {
+        imagen: "kids_roll.webp",
+        titulo: "Kids Roll",
+        descripcion: ["Queso", "Jamón", "Mayonesa de la casa"],
+        precio: 3000,
+    },
+    {
+        imagen: "premium_roll.webp",
+        titulo: "Premium Roll",
+        descripcion: [
+            "Pollo",
+            "Carne vacuna",
+            "Repollo",
+            "Zanahoria",
+            "Queso",
+            "Jamón",
+            "Mayonesa de la casa",
+        ],
+        precio: 6200,
+    },
+    {
+        imagen: "veggie_roll.webp",
+        titulo: "Veggie Roll",
+        descripcion: [
+            "Croquetas de lentejas",
+            "Repollo",
+            "Zanahoria",
+            "Queso",
+            "Hummus (garbanzo, aceite de oliva y limón)",
+            "Mayonesa de la casa",
+        ],
+        precio: 6200,
+    },
+];
+---
+
+<section class="section-main productos-section" id="productos-section">
+    <Section>
+        <Encabezado img="menu.jpg" alt="logo menu">Nuestro menú · Todos los combos incluyen papas.</Encabezado>
+
+        <section class="productos-container">
+            {
+                PRODUCTOS.map((producto) => (
+                    <Producto
+                        imagen={producto.imagen}
+                        titulo={producto.titulo}
+                        descripcion={producto.descripcion}
+                        precio={producto.precio}
+                    />
+                ))
+            }
+        </section>
+    </Section>
+</section>
+
+<style>
+    .productos-section {
+        background-color: #1a1a1a;
+        z-index: 100;
+        /* padding: 100px 0; */
+    }
+
+    .productos-container {
+        /* display: flex;
+        flex-wrap: wrap;
+        gap: 70px; */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 70px;
+        justify-items: center;
+    }
+</style>

@@ -1,0 +1,110 @@
+---
+interface Props {
+    imagen: string;
+    titulo: string;
+    descripcion: {}[];
+    precio: number;
+}
+
+const { imagen, titulo, descripcion, precio } = Astro.props;
+---
+
+<aside class="producto">
+    <header class="producto-imagen">
+        <img class="imagen" src=`../../public/Menu/${imagen}` alt="" />
+    </header>
+
+    <div class="producto-info">
+        <h3 class="producto-titulo">{titulo}</h3>
+
+        <p class="producto-descripcion">
+            {descripcion.join(` · `)}.
+        </p>
+
+        <footer class="producto-footer">
+            <span class="precio">${precio}</span>
+            <button>Añadir</button>
+        </footer>
+    </div>
+</aside>
+
+<style>
+    .producto {
+        width: 400px;
+        height: 550px;
+        border-radius: 18px;
+        transition: box-shadow .3s;
+    }
+
+    .producto:hover .producto-imagen .imagen {
+        transform: scale(1.05);
+        filter: brightness(1);
+    }
+
+    .producto-imagen {
+        width: 100%;
+        height: 60%;
+        overflow: hidden;
+        border-radius: 18px;
+        /* margin-bottom: 5px; */
+
+        & img {
+            width: 100%;
+            object-fit: cover;
+            filter: brightness(.8);
+            transition: all 0.6s;
+        }
+    }
+
+    .producto-info {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: space-between; */
+        height: 40%;
+    }
+
+    .producto-titulo {
+        font-family: "The Brother Hoops", sans-serif;
+        letter-spacing: 6px;
+        font-size: 4.4rem;
+        font-weight: 600;
+        color: var(--orangeBurnt);
+    }
+
+    .producto-descripcion {
+        font-size: 1.9rem;
+        letter-spacing: 2.3px;
+        line-height: 28px;
+        color: var(--gris-descripcion);
+        font-family: "Bebas Neue", sans-serif;
+        min-height: 105px;
+    }
+
+    .producto-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 2.5rem;
+        justify-self: flex-end;
+
+        & span {
+            font-size: 3.1rem;
+            font-weight: 500;
+        }
+
+        & button {
+            font-size: 2.4rem;
+            /* color: #white; */
+            background-color: #f0f0f0;
+            background-color: var(--orangeBurnt);
+            padding: 4px 24px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        & button:hover {
+            transform: scale(1.05);
+            filter: brightness(1.05);
+        }
+    }
+</style>

@@ -1,0 +1,36 @@
+---
+interface Props {
+    classDescripcion?: string;
+    img?: string;
+    alt: string;
+}
+
+const { classDescripcion, img, alt } = Astro.props;
+---
+
+<div class=`encabezado ${classDescripcion}`>
+    <img src=`../../public/Iconos/${img}` alt=`${alt}` />
+
+    <h2>
+        <slot />
+    </h2>
+</div>
+
+<style>
+    .encabezado {
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+
+        & img {
+            width: 70px;
+            border-radius: 50%;
+            margin-right: 25px;
+        }
+
+        & h2 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+    }
+</style>
