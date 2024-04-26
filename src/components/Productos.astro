@@ -71,14 +71,15 @@ const PRODUCTOS = [
     <Section>
         <Encabezado img="menu.jpg" alt="logo menu">Nuestro menú · Todos los combos incluyen papas.</Encabezado>
 
-        <section class="productos-container">
+        <section class="productos-container" id="lazy-loading-container">
             {
-                PRODUCTOS.map((producto) => (
+                PRODUCTOS.map((producto, index) => (
                     <Producto
                         imagen={producto.imagen}
                         titulo={producto.titulo}
                         descripcion={producto.descripcion}
                         precio={producto.precio}
+                        classProp={`animate__delay-${index}s`}
                     />
                 ))
             }
@@ -103,3 +104,8 @@ const PRODUCTOS = [
         justify-items: center;
     }
 </style>
+
+
+<script>
+    
+</script>

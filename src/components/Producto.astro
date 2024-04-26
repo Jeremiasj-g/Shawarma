@@ -4,12 +4,13 @@ interface Props {
     titulo: string;
     descripcion: {}[];
     precio: number;
+    classProp?: string;
 }
 
-const { imagen, titulo, descripcion, precio } = Astro.props;
+const { imagen, titulo, descripcion, precio, classProp } = Astro.props;
 ---
 
-<aside class="producto">
+<aside class=`producto animate__animated animate__fadeIn ${classProp}`>
     <header class="producto-imagen">
         <img class="imagen" src=`../../public/Menu/${imagen}` alt="" />
     </header>
