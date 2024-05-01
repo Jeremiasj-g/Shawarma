@@ -10,7 +10,7 @@ interface Props {
 const { imagen, titulo, descripcion, precio, classProp } = Astro.props;
 ---
 
-<aside class=`producto animate__animated animate__fadeIn ${classProp}`>
+<article class=`producto animate__animated animate__fadeIn ${classProp}`>
     <header class="producto-imagen">
         <img class="imagen" src=`../../public/Menu/${imagen}` alt="" />
     </header>
@@ -24,17 +24,19 @@ const { imagen, titulo, descripcion, precio, classProp } = Astro.props;
 
         <footer class="producto-footer">
             <span class="precio">${precio}</span>
-            <button>Añadir</button>
+            <button aria-label="boton para añadir producto al carrito"
+                >Añadir</button
+            >
         </footer>
     </div>
-</aside>
+</article>
 
 <style>
     .producto {
         width: 400px;
         height: 550px;
         border-radius: 18px;
-        transition: box-shadow .3s;
+        transition: box-shadow 0.3s;
     }
 
     .producto:hover .producto-imagen .imagen {
@@ -51,8 +53,9 @@ const { imagen, titulo, descripcion, precio, classProp } = Astro.props;
 
         & img {
             width: 100%;
+            height: 100%;
             object-fit: cover;
-            filter: brightness(.8);
+            filter: brightness(0.8);
             transition: all 0.6s;
         }
     }
@@ -106,6 +109,34 @@ const { imagen, titulo, descripcion, precio, classProp } = Astro.props;
         & button:hover {
             transform: scale(1.05);
             filter: brightness(1.05);
+        }
+    }
+
+    @media (width < 768px) {
+        .producto {
+            width: 100%;
+        }
+
+
+        .producto-titulo {
+            letter-spacing: 3px;
+            font-size: 3.8rem;
+        }
+
+        .producto-descripcion {
+            font-size: 1.6rem;
+        }
+
+        .producto-footer {
+            & span {
+                font-size: 2.7rem;
+                font-weight: 500;
+            }
+
+            & button {
+                font-size: 2.3rem;
+                background-color: var(--orangeBurnt);
+            }
         }
     }
 </style>

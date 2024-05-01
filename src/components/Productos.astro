@@ -1,7 +1,7 @@
 ---
 import Encabezado from "./Encabezado.astro";
 import Producto from "./Producto.astro";
-import Section from "./SectionContainer.astro";
+import SectionContainer from "./SectionContainer.astro";
 
 const PRODUCTOS = [
     {
@@ -68,10 +68,12 @@ const PRODUCTOS = [
 ---
 
 <section class="section-main productos-section" id="productos-section">
-    <Section>
-        <Encabezado img="menu.jpg" alt="logo menu">Nuestro menú · Todos los combos incluyen papas.</Encabezado>
+    <SectionContainer>
+        <Encabezado img="menu.jpg" alt="logo menu"
+            >Nuestro menú · Todos los combos incluyen papas.</Encabezado
+        >
 
-        <section class="productos-container" id="lazy-loading-container">
+        <section class="productos-container">
             {
                 PRODUCTOS.map((producto, index) => (
                     <Producto
@@ -84,12 +86,12 @@ const PRODUCTOS = [
                 ))
             }
         </section>
-    </Section>
+    </SectionContainer>
 </section>
 
 <style>
     .productos-section {
-        background-color: #1a1a1a;
+        background-color: var(--negro-suave);
         z-index: 100;
         /* padding: 100px 0; */
     }
@@ -103,9 +105,12 @@ const PRODUCTOS = [
         gap: 70px;
         justify-items: center;
     }
+
+    @media (width < 768px) {
+        .productos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 70px;
+        }
+    }
 </style>
-
-
-<script>
-    
-</script>

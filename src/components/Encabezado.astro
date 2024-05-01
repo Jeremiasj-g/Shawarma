@@ -2,7 +2,7 @@
 interface Props {
     classDescripcion?: string;
     img?: string;
-    alt: string;
+    alt?: string;
 }
 
 const { classDescripcion, img, alt } = Astro.props;
@@ -14,6 +14,8 @@ const { classDescripcion, img, alt } = Astro.props;
     <h2>
         <slot />
     </h2>
+
+    <slot name="icono" />
 </div>
 
 <style>
@@ -31,6 +33,24 @@ const { classDescripcion, img, alt } = Astro.props;
         & h2 {
             font-size: 3rem;
             font-weight: 600;
+        }
+    }
+
+    @media (width < 768px) {
+        .encabezado {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+
+            & img {
+                width: 50px;
+                margin-right: 25px;
+            }
+
+            & h2 {
+                font-size: 1.6rem;
+                font-weight: 600;
+            }
         }
     }
 </style>

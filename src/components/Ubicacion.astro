@@ -4,14 +4,14 @@ import SectionContainer from "./SectionContainer.astro";
 import MapPin from "./icons/MapPin.astro";
 ---
 
-<section class="section-main section-ubicacion">
-        <Encabezado classDescripcion="text-negroSuave" img="ubicacion.jpg" alt="logo ubicacion">Encontranos en Pellegrini y Jujuy</Encabezado>
+<section class="section-ubicacion">
+        <!-- <Encabezado classDescripcion="text-negroSuave" img="ubicacion.jpg" alt="logo ubicacion">Encontranos en Pellegrini y Jujuy</Encabezado> -->
 
         <div class="ubicacion-container">
             <a href="https://maps.app.goo.gl/zCJuY65tqvaftt7C6" target="_blank" class="map-pin"><MapPin></a>
         </div>
 
-        <a class="ubicacion-pregunta" target="_blank" href="https://www.google.com/maps/dir//Carlos+Pellegrini+1801,+W3402+Corrientes/@-27.4662204,-58.9099883,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94456b5adff02275:0x3ec6a4851c169faa!2m2!1d-58.8275868!2d-27.4662445?entry=ttu">¿No sabes como llegar?</a>
+        <!-- <a class="ubicacion-pregunta" target="_blank" href="https://www.google.com/maps/dir//Carlos+Pellegrini+1801,+W3402+Corrientes/@-27.4662204,-58.9099883,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x94456b5adff02275:0x3ec6a4851c169faa!2m2!1d-58.8275868!2d-27.4662445?entry=ttu">¿No sabes como llegar?</a> -->
 </section>
 
 <style>
@@ -22,13 +22,14 @@ import MapPin from "./icons/MapPin.astro";
     }
     .section-ubicacion {
         color: var(--negro-suave);
+        margin-top: 15px;
     }
     
     .ubicacion-container {
         display: grid;
         place-items: center;
-        width: 650px;
-        height: 300px;
+        width: 750px;
+        height: 200px;
         background-image: url('../../public/Mas_ilustraciones/map_ubicacion.PNG');
         background-position: center;
         background-size: cover;

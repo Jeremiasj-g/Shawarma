@@ -61,6 +61,10 @@ import BrandShopee from "./icons/BrandShopee.astro";
         animation: enhance-image-logo linear both;
         animation-timeline: scroll(root block);
         animation-range: 0 300px;
+
+        & img {
+            width: 100%;
+        }
     }
     
     .carrito {
@@ -92,5 +96,12 @@ import BrandShopee from "./icons/BrandShopee.astro";
             width: 55px;
             height: 55px;
         }
+    }
+
+    @media (width < 768px) {
+        .logo-figure {
+            width: 70px;
+            height: 70px;
+    }
     }
 </style>

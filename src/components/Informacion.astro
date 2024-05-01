@@ -1,22 +1,142 @@
 ---
+import Encabezado from "./Encabezado.astro";
 import Presentacion from "./Presentacion.astro";
 import SectionContainer from "./SectionContainer.astro";
 import Ubicacion from "./Ubicacion.astro";
+import MapPin from "./icons/MapPin.astro";
 ---
 
-<section class="section-main section-informacion">
-    <section class="container">
-        <Ubicacion></Ubicacion>
-    </section>
+<section class="section-main section-informacion relative">
+    <SectionContainer>
+        <h2 class="information-titulo">
+            <span class="font-the-brother color-naranja font-bold">¿</span>
+            <span class="color-marron font-bold"
+                >QUÉ <span>VAS A PEDIR</span></span
+            >
+            <span class="font-the-brother color-naranja">HOY</span>
+            <span class="font-the-brother color-marron font-bold">?</span>
+        </h2>
+
+        <Encabezado
+            img="horario.jpg"
+            alt="Logo horario"
+            classDescripcion="text-negroSuave"
+            >Desde las 20:30 estamos atendiendo.</Encabezado
+        >
+
+        <Encabezado
+            img="ubicacion.jpg"
+            alt="logo ubicacion"
+            classDescripcion="text-negroSuave"
+            >Encontranos en Pellegrini y Jujuy. <a
+                href="https://maps.app.goo.gl/zCJuY65tqvaftt7C6"
+                slot="icono"
+                class="text-[#662d02] ml-4 scale-75 md:scale-90 transition-all hover:scale-100"
+                target="_blank"
+                aria-label="boton de ubicacion de shawarma"><MapPin /></a
+            >
+        </Encabezado>
+
+        <Encabezado
+            img="pagos.jpg"
+            alt="Logo de pagos"
+            classDescripcion="text-negroSuave"
+            >Actualmente mercado pago como metodo de pago.</Encabezado
+        >
+
+        <Encabezado
+            img="contacto.jpg"
+            alt="Logo de contacto"
+            classDescripcion="text-negroSuave"
+        >
+            <a
+                href="https://api.whatsapp.com/send/?phone=5493795045540&text=Hola+quiero+saber+m%C3%A1s+sobre+el+men%C3%BA&type=phone_number&app_absent=0"
+                target="_blank"
+                class="info-contacto"
+                aria-label="boton para abrir consultas"
+                >¡Tu consulta no molesta!</a
+            >
+        </Encabezado>
+    </SectionContainer>
+
+    <div class="background-blobs"></div>
 </section>
 
 <style>
     .section-informacion {
         flex-direction: row;
         gap: 10px;
-        
-        > section {
+        height: max-content;
+
+        /* > section {
             margin-bottom: 20px;
+        } */
+    }
+
+    .information-titulo {
+        font-size: 6rem;
+        margin-bottom: 40px;
+    }
+
+    .font-the-brother,
+    .color-marron {
+        font-size: inherit;
+    }
+
+    .color-marron {
+        color: var(--DarkEarth);
+    }
+
+    .color-naranja {
+        color: var(--orangeBurnt);
+    }
+
+    .font-the-brother {
+        font-family: "The Brother Hoops", sans-serif;
+    }
+
+    .background-blobs {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-image: url("../../public/Mas_ilustraciones/info-blob-left2.png"),
+            url("../../public/Mas_ilustraciones/info-blob-right2.PNG");
+        background-position:
+            bottom left,
+            top right;
+        background-size: 1300px, 1600px;
+    }
+
+    .info-contacto {
+        display: inline-block;
+        font-size: inherit;
+        text-decoration: underline;
+        color: var(--DarkEarth);
+
+        transition: all 0.15s;
+    }
+    .info-contacto:hover {
+        transform: scale(1.05);
+    }
+
+    @media (width < 768px) {
+        .section-informacion {
+            flex-direction: row;
+            gap: 10px;
+            height: max-content;
+        }
+
+        .information-titulo {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .background-blobs {
+            background-size: 800px, 600px;
         }
     }
 </style>

@@ -4,17 +4,22 @@ import SectionContainer from "./SectionContainer.astro";
 
 <section class="section-main presentacion-section">
     <SectionContainer>
-        <h1>Descubre los <br> deliciosos sabores de <br> SHAWARMA ROLLS</h1>
-        <p>Nuestra rotisería ofrece auténtica cocina árabe con ingredientes frescos y sabrosos. <br> Ven y disfruta de nuestros deliciosos shawarma rolls y platos tradicionales.</p>
+        <h1>Descubre los <br class="hidden md:block"/> deliciosos sabores de <br class="hidden md:block"/> SHAWARMA ROLLS</h1>
+        <p>
+            Nuestra rotisería ofrece auténtica cocina árabe con ingredientes
+            frescos y sabrosos. <br /> Ven y disfruta de nuestros deliciosos shawarma
+            rolls y platos tradicionales.
+        </p>
 
         <div class="buttons-container">
-            <a href="#productos-section">Menú</a>
-            <a href="">Pedido</a>
+            <a href="#productos-section" aria-label="boton para ir al menu"
+                >Menú</a
+            >
+            <a href="/" aria-label="boton para ir al pedido">Pedido</a>
         </div>
     </SectionContainer>
 
-    <div class="papas">
-    </div>
+    <div class="papas"></div>
     <div class="blob_left"></div>
 </section>
 
@@ -26,14 +31,14 @@ import SectionContainer from "./SectionContainer.astro";
         align-items: center;
         color: var(--negro-suave);
         backdrop-filter: blur(5px);
-        
+
         & h1 {
             font-size: 60px;
             font-weight: 700;
             line-height: 70px;
             margin-bottom: 30px;
         }
-        
+
         & p {
             font-size: 2.4rem;
             margin-bottom: 70px;
@@ -50,8 +55,8 @@ import SectionContainer from "./SectionContainer.astro";
                 padding: 5px 40px;
                 border-radius: 8px;
                 margin-right: 15px;
-                box-shadow: 7px 7px 20px rgb(0, 0, 0, .3);
-                transition: all .3s;
+                box-shadow: 7px 7px 20px rgb(0, 0, 0, 0.3);
+                transition: all 0.3s;
             }
 
             & a:first-child {
@@ -64,25 +69,58 @@ import SectionContainer from "./SectionContainer.astro";
             }
         }
     }
-    
-    .papas, .blob_left {
+
+    .papas,
+    .blob_left {
         position: absolute;
         width: 100%;
         height: 100%;
         z-index: -1;
         background-repeat: no-repeat;
     }
-    
-    .papas {        
+
+    .papas {
         background-position: right bottom;
         background-size: 750px, 1300px;
-        background-image: url('../../public/Mas_ilustraciones/papas.png'), url('../../public/Mas_ilustraciones/papas_blob.png');
+        background-image: url("../../public/Mas_ilustraciones/papas.png"),
+            url("../../public/Mas_ilustraciones/papas_blob.png");
     }
-    
+
     .blob_left {
         background-position: left top;
         background-size: 1200px;
-        background-image: url('../../public/Mas_ilustraciones/presentacion_blob_left.PNG');
-        
+        background-image: url("../../public/Mas_ilustraciones/presentacion_blob_left.PNG");
+    }
+
+    @media (width < 768px) {
+        .presentacion-section {
+
+            & h1 {
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 38px;
+                margin-bottom: 15px;
+            }
+
+            & p {
+                color: black;
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+                text-wrap: pretty;
+            }
+
+            & .buttons-container {
+                font-size: 2.8rem;
+            }
+        }
+
+        .papas {
+            background-image: url("../../public/Mas_ilustraciones/papas_blob.png");
+            background-size: 500px;
+        }
+
+        .blob_left {
+            background-size: 800px;
+        }
     }
 </style>
